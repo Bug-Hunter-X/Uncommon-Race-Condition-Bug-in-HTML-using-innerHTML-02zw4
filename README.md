@@ -1,0 +1,1 @@
+This repository demonstrates a race condition bug in HTML involving innerHTML and setTimeout.  The bug occurs due to a timing issue where attempts to modify the innerHTML of an element too rapidly can lead to unexpected results. The solution shows a way to improve code to address the race condition by using a more reliable approach.
