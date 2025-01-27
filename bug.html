@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    // This is an uncommon bug caused by incorrect use of innerHTML and a race condition
+    document.getElementById('myDiv').innerHTML = '<p>This text replaces the previous text.</p>';
+    setTimeout(function(){
+      document.getElementById('myDiv').innerHTML = ''; //Attempting to clear the content too soon
+    }, 0);
+    setTimeout(function(){
+        document.getElementById('myDiv').innerHTML = 'This text should not be visible.';
+    }, 100);
+  </script>
+</body>
+</html>
